@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-deployment
+  namespace: todo-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: todo-backend
+  template:
+    metadata:
+      labels:
+        app: todo-backend
+    spec:
+      containers:
+      - name: backend
+        image: idilsuelmas/todo-backend:v1
+        envFrom:
+        - configMapRef: { name: db-config }
+        - secretRef: { name: db-secret }
+        env:
+        - name: DB_HOST
+          value: "db-service"
+        ports:
+        - containerPort: 8080
