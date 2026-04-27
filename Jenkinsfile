@@ -5,6 +5,7 @@ pipeline {
 apiVersion: v1
 kind: Pod
 spec:
+  hostNetwork: true
   containers:
   - name: kaniko
     image: gcr.io/kaniko-project/executor:debug
