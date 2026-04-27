@@ -1,3 +1,4 @@
+# deneme - trigger için
 apiVersion: v1
 kind: Pod
 metadata:
