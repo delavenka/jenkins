@@ -8,6 +8,8 @@ spec:
   containers:
   - name: kaniko
     image: gcr.io/kaniko-project/executor:debug
+    // Her iki container (kaniko ve jnlp) için de eklemelisin
+    imagePullPolicy: 'IfNotPresent'
     command:
     - /busybox/cat
     tty: true
